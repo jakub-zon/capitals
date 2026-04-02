@@ -123,7 +123,6 @@ h2 { text-align: center; margin: 8px 0; font-size: 1.1em; color: #aaa; }
 <body>
 
 <!-- START SCREEN -->
-<p id="test1" style="color:yellow;text-align:center">TEST: widzisz ten tekst?</p>
 <div id="start">
   <h1>Stolice i Flagi</h1>
   <h2>Wybierz kategorię</h2>
@@ -179,18 +178,6 @@ h2 { text-align: center; margin: 8px 0; font-size: 1.1em; color: #aaa; }
   </div>
   <button class="btn-restart" onclick="backToStart()">Nowy quiz</button>
 </div>
-
-<div id="dbg" style="position:fixed;bottom:0;left:0;right:0;background:red;color:#fff;padding:10px;font-size:12px;max-height:40vh;overflow:auto;z-index:9999">DEBUG: html rendered</div>
-<script>alert('JS works');</script>
-<script>
-window.onerror = function(msg, src, line, col, err) {
-  var d = document.getElementById('dbg');
-  d.style.display = 'block';
-  d.innerHTML += '<b>Error:</b> ' + msg + '<br>Line: ' + line + ', Col: ' + col + '<br><br>';
-};
-document.getElementById('dbg').style.display='block';
-document.getElementById('dbg').innerHTML='BEFORE data load...';
-</script>
 
 <script>
 const COUNTRIES = [
@@ -449,10 +436,6 @@ const COUNTRIES = [
 {"n": "Zambia", "c": "Lusaka", "k": "Afryka", "t": "Państwo", "f": "iVBORw0KGgoAAAANSUhEUgAAAKAAAABrBAMAAAACzpRpAAAAMFBMVEUZigDvfQDeIBAAAAC4YQA3eAHRbQDHHA4OBwChSwSUZQBgYwAXgQC5gAAdeQAGIwB2lKHdAAABnElEQVRo3u3VsUrDQBgH8CzdSuFAArWbiw/gEwQ+AmmgFGkHmyIUzoOmT+DoO4RA6hRIAyZSLDQFmyJZOjV0clIEFwXbvoJorE0np+Qm+f5ZwsH9uOPuu08QMBjMLsXF61/DcZQVXLX09vx39nyzH10Eg6yidjESw+3swqMRbIdKs5ZuD+oZdzwdV13RfW5Hwjs5DH82qzkedXte1hW2+n2wQWZeMCK1OE44Rqmsu35WsODc+BLtgihKpOI9OVSGrqkA3GY+5pJmdJgMUO4QkvyYzLIcauh32S/O2vOIAkyWCOmaBlUMmTDq57mJU91LlsgS8IBSsEzGlGo9193WZBBNJVmYyIBRAKi281VLvHRBhwRjyZEAWA9R7gLchP2JIzEG1LKuZ1xqenlus0pHBoWTl+TtvmIDTIb8Hp4PtaGGwzo/UFMbNSHi+DSuayufIycU7DLr8QTXY3UacO0GzVmTc3spFrHHYv5FzqzL3feV5vMlTRbw9GiX45M0VyQNgggiiCCCCCKIIIIIIogggggiiCCCCCKIIIJ78Btb68JI8gufwAAAAABJRU5ErkJggg=="},
 {"n": "Zimbabwe", "c": "Harare", "k": "Afryka", "t": "Państwo", "f": "iVBORw0KGgoAAAANSUhEUgAAAKAAAABQCAMAAACpg44GAAAAeFBMVEXUAAA1AAAIBwXUrQEAZACAmwD0ngAAAAD/////0gD59/ckLCTovgChoaG4BQDpf39dXV3BngCtjgAAUwAMFgDLIxf1yQDU1NTDr1/S0tJBOwDlZGTvr6+7cQKeRAX64+P3zMyDbABsAADeQkLsj4/LiAzMxKJ/mgCSW4YlAAACl0lEQVRo3tWbW3ObMBBGlaitEVFxRQy44WIIl/7/f5iVIDYC0elT9uuOJzN48nBGR9Ku0Fr8fD5dXr/hhoh+v5yeX5EBo/jX6fSCDBhFyJodILLmGRBY8wKIq/kOiKr5AQiqeQWIqdkDRNTsAzrNb3++A8UG0Gl+0wondoBW88UgAzrNHTIgluYgIJLmMCCQ5gNAHM2HgCiag4AVkOYQYNsDaQ4BnsVtlZvrH6wRAszEsF7N74I19nw3IXpvNT8lWIADfXvzS7AECXDK6Nths2m/owDG01WazHPMrdkHvBqZpmPiOWbW7AMWk8yVTnzHvJq3U/CqHGAfyM08mrcg4wwo4kBuZtFsN77zKmqVy4ZAytV3A6dmVxysnhtNs3D0hqq/cWqek0e/ArQpWmaP/xg8zaenrw2xSh8uaqUlEepmec7a7Wr+2rgvknYZs3EGVKp2Mst4v5p5AKO4XEZQSqlzIrQTsQpW2jyAy1oZc6O0SQlSyeZ2dKDiAbRrJbOLWKXSSPuZDg9UPIBRlUiTK2m01nmeX6cYDbCvpZYmpbEjx111fGZmAoxpAKXWlk52OimDfAXfIiHDTddpnRrLWAvBrXcHWIomTVMzf2inbpn17gApb2g7Ad0KJsAypJcp1S37IE1CN4b0lwAzhJrQM0yJhPZBF9qmvhagqvYMi+x6jzM9nn29XAXrZ7ngSoPH3kzlQwZV8pfb0oDKhxbp0NTvS4Nq4NUbfvXhDSLawf0o98K8+gjnXqyXRygH9n+cg4gvMH29F8BXwFB3JeLvejvgi5wC+CLnP7gKQ79MLMCvY8EvtNFbAgrwpgrwthT0xp4CvDUKvLkMvT2vAG9wBG8RRW+yLcDblMEbvdFb5QvwHxug/1zjA7QiFfzxt3ZQAAAAAElFTkSuQmCC"}
 ];
-</script>
-<script>
-var d=document.getElementById('dbg');d.style.display='block';
-try{d.innerHTML='1: COUNTRIES exists: '+(typeof COUNTRIES!=='undefined')+', count: '+(typeof COUNTRIES!=='undefined'?COUNTRIES.length:'N/A');}catch(e){d.innerHTML='1: ERROR: '+e.message;}
 </script>
 <script>
 
@@ -744,8 +727,7 @@ document.getElementById('capitalInput').addEventListener('keydown', e => {
 });
 
 // Init
-document.getElementById('dbg').innerHTML+='<br>2: logic loaded';
-try { buildStart(); document.getElementById('dbg').innerHTML+='<br>3: buildStart done'; } catch(e) { document.getElementById('dbg').innerHTML+='<br>ERROR: '+e.message; }
+buildStart();
 </script>
 </body>
 </html>
